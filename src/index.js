@@ -11,13 +11,23 @@ var origin = [process.env.LOCALHOST, process.env.SECONDHOST]
 
 // 🟢 HTTP Server
 const server = http.createServer((req, res) => {
-    res.writeHead(200, {
-        "content-type": "application/json",
-        "access-control-allow-origin": origin // cors 
-    })
-    res.end(JSON.stringify({
-        data: "Server is working"       
-    }));
+    if (req.url === '/'){
+        res.writeHead(200, {
+            "content-type": "application/json",
+            "access-control-allow-origin": origin // cors 
+        })
+        res.end(JSON.stringify({
+            data: "Server is working"       
+        }));
+    }else if(req.url === "/user"){
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'text/plain')
+        res.end(`Hello Brother for you ${req.url}`);
+    }else{
+        res.statusCode = 404;
+        res.setHeader('Content-Type', 'text/plain')
+        res.end("Invalid url");
+    };
 });
 
 
