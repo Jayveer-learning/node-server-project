@@ -1,0 +1,20 @@
+{
+  "name": "node-server-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "keywords": ["node.js", "server", "backend"],
+  "author": "Jay veer",
+  "license": "MIT",
+  "description": "Node.js server project",
+  "dependencies": {
+    "nodemon": "^3.1.9"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.7"
+  }
+}
